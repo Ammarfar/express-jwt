@@ -12,4 +12,7 @@ module.exports = (app) => {
         );
         next();
     });
+
+    // route list
+    require('./auth')(app);
 }
