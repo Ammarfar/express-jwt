@@ -61,5 +61,29 @@ module.exports = {
             await t.rollback();
             return error;
         }
+    },
+
+    getUserByEmail(req) {
+        return User.findOne({
+            attributes: [
+                'id',
+                'username',
+                'email',
+                'password'
+            ],
+            include: [
+                {
+                    model: Role,
+                    as: "roles",
+                    attributes: [
+                        'name'
+                    ],
+                    through: { attributes: [] }
+                }
+            ],
+            where: {
+                email: req.body.email
+            }
+        });
     }
 }

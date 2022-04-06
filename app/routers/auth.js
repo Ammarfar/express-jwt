@@ -1,5 +1,5 @@
 const { checkDuplicateUsernameOrEmail, checkRolesExisted } = require("../middleware/auth");
-const { register } = require("../controllers/auth");
+const { register, login } = require("../controllers/auth");
 
 module.exports = function (app) {
     var prefix = "/api/auth/";
@@ -11,5 +11,10 @@ module.exports = function (app) {
             checkRolesExisted
         ],
         register
+    );
+
+    app.post(
+        `${prefix}login`,
+        login
     );
 };
