@@ -1,4 +1,4 @@
-const { checkDuplicateUsernameOrEmail, checkRolesExisted } = require("../middleware/verifySignUp");
+const { checkDuplicateUsernameOrEmail, checkRolesExisted } = require("../middleware/auth");
 const { register } = require("../controllers/auth");
 
 module.exports = function (app) {
