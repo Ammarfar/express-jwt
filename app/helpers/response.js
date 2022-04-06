@@ -1,9 +1,17 @@
 module.exports = {
-    responseApi(message, data = null, error = false) {
+    responseSuccess(message, data = null) {
         return {
             message: message,
             data: data,
-            error: error
+            error: false
         };
-    }
+    },
+
+    responseError(message, data = null) {
+        return {
+            message: message,
+            data: data,
+            error: true
+        };
+    },
 }
