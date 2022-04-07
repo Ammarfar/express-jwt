@@ -85,5 +85,15 @@ module.exports = {
                 email: req.body.email
             }
         });
+    },
+
+    async isRole(req, role) {
+        const user = await User.findByPk(req.userId);
+        const roles = await user.getRoles();
+        for (let i = 0; i < roles.length; i++) {
+            if (roles[i].name === role) return false;
+        }
+
+        return true;
     }
 }
