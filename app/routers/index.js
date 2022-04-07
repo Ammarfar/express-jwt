@@ -15,4 +15,5 @@ module.exports = (app) => {
 
     // route list
     require('./auth')(app);
+    require('./user')(app);
 }
